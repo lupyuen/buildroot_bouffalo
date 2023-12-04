@@ -4,14 +4,14 @@ on:
   workflow_dispatch:
   push:
     # branches: [ main ]
-    paths-ignore:
-      - '.github/**'
-    tags:
-      - "v*.*.*"
+    # paths-ignore:
+    #   - '.github/**'
+    # tags:
+    #   - "v*.*.*"
   pull_request:
     # branches: [ main ]
-    paths-ignore:
-      - '.github/**'
+    # paths-ignore:
+    #   - '.github/**'
     
 jobs:
   buildroot:
