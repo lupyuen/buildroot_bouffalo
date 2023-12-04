@@ -51,6 +51,7 @@ jobs:
         key: ${{ runner.os }}-build-${{ env.cache-name }}-downloads
     - name: Build
       run: |
+        set -x  #  Echo commands
         export BR_BOUFFALO_OVERLAY_PATH=$(pwd)/buildroot_bouffalo
         cd buildroot
         make BR2_EXTERNAL=$BR_BOUFFALO_OVERLAY_PATH ${{ matrix.target }} || true
@@ -62,6 +63,7 @@ jobs:
         make ccache-stats || true
         cat config.log || true
         find .
+        cat output/build/attr-2.5.1/config.log || true
     - name: Pack
       run: |
         cd ${{ github.workspace }}/buildroot/output/images/
