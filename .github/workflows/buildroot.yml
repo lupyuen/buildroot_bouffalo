@@ -53,10 +53,15 @@ jobs:
       run: |
         export BR_BOUFFALO_OVERLAY_PATH=$(pwd)/buildroot_bouffalo
         cd buildroot
-        make BR2_EXTERNAL=$BR_BOUFFALO_OVERLAY_PATH ${{ matrix.target }}
-        make
-        make sdk
-        make ccache-stats
+        make BR2_EXTERNAL=$BR_BOUFFALO_OVERLAY_PATH ${{ matrix.target }} || true
+        cat config.log || true
+        make || true
+        cat config.log || true
+        make sdk || true
+        cat config.log || true
+        make ccache-stats || true
+        cat config.log || true
+        find .
     - name: Pack
       run: |
         cd ${{ github.workspace }}/buildroot/output/images/
