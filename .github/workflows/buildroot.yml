@@ -3,15 +3,15 @@ name: build-all
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
-    paths-ignore:
-      - '.github/**'
-    tags:
-      - "v*.*.*"
+    # branches: [ main ]
+    # paths-ignore:
+    #   - '.github/**'
+    # tags:
+    #   - "v*.*.*"
   pull_request:
-    branches: [ main ]
-    paths-ignore:
-      - '.github/**'
+    # branches: [ main ]
+    # paths-ignore:
+    #   - '.github/**'
     
 jobs:
   buildroot:
